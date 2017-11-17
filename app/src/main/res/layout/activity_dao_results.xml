@@ -20,12 +20,14 @@
         android:layout_height="200dp"
         android:paddingTop="24dp"
         android:textColor="#ffffff"
+        android:textSize="14sp"
         android:layout_gravity="center"/>
     <Button
         android:id="@+id/go_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="MORE QUIZZES"/>
+        android:text="MORE QUIZZES"
+        android:textSize="14sp"/>
 
 </LinearLayout>

@@ -17,6 +17,7 @@ public class DaoModel {
     public void setBoxChecked(int boxChecked) {
         this.boxChecked = boxChecked;
     }
+
     public DaoModel(String url, String question, String[] answer) {
         this.url = url;
         this.question = question;
