@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.nyc.buzzfeedquizhw.MainActivity"
+    android:orientation="vertical"
+    android:background="@drawable/spring">
+
+    <TextView
+        android:id="@+id/textview_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Casual Quizzes"
+        android:gravity="center"
+        android:textColor="@color/colorAccent"
+        android:textSize="46sp"/>
+    <Button
+        android:id="@+id/intro_extro_quiz"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:onClick="quizChoice"
+        android:text="Are you and Introvert or an Extrovert?"/>
+    <Button
+        android:id="@+id/dao_quiz"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:onClick="quizChoice"
+        android:text="Which Dao of the elements should you meditate on for your immortal path?"/>
+
+
+</LinearLayout>
