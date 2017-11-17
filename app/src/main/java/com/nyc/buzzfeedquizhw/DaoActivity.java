@@ -1,6 +1,7 @@
 package com.nyc.buzzfeedquizhw;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -17,10 +18,13 @@ import java.util.List;
 
 public class DaoActivity extends AppCompatActivity {
 
+    private static final String SHARED_PREFS_KEY = "daoKey";
     private Button submit;
     private DaoAdapter daoAdapter;
     private LinearLayoutManager layoutManager;
     private RecyclerView daoRecycler;
+    private SharedPreferences keepClicked;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

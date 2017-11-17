@@ -1,5 +1,6 @@
 package com.nyc.buzzfeedquizhw.controller;
 
+import android.content.SharedPreferences;
 import android.support.annotation.IdRes;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -13,15 +14,19 @@ import com.nyc.buzzfeedquizhw.views.DaoViewHolder;
 import java.util.HashMap;
 import java.util.List;
 
+import static android.content.Context.MODE_PRIVATE;
+
 /**
  * Created by c4q on 11/16/17.
  */
 
 public class DaoAdapter extends RecyclerView.Adapter<DaoViewHolder> {
 
+    private static final String SHARED_PREFS_KEY = "daoKey";
     private List<DaoModel> modelList;
     private DaoViewHolder viewHolder;
     private DaoModel model;
+    private SharedPreferences keepClicked;
 
     public DaoAdapter(List<DaoModel> modelList) {
         this.modelList = modelList;
@@ -31,6 +36,7 @@ public class DaoAdapter extends RecyclerView.Adapter<DaoViewHolder> {
     public DaoViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View childView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_view, parent, false);
         viewHolder = new DaoViewHolder(childView);
+        keepClicked = parent.getContext().getSharedPreferences(SHARED_PREFS_KEY, MODE_PRIVATE);
         return viewHolder;
     }
 
@@ -39,7 +45,11 @@ public class DaoAdapter extends RecyclerView.Adapter<DaoViewHolder> {
         holder.getView().setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, @IdRes int i) {
+                SharedPreferences.Editor editor = keepClicked.edit();
                 modelList.get(position).setBoxChecked(i);
+                editor.putInt(String.valueOf(position),i);
+                editor.putBoolean("clicked", true);
+                editor.commit();
                 Log.d("onBindVH", "onCheckedChanged: " + i);
             }
         });
