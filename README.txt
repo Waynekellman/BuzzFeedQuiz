@@ -1,0 +1,1 @@
+The test is in the Example unit test class. A test to make sure the adapter properly adds the model.

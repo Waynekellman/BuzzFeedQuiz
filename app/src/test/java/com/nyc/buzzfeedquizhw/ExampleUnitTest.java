@@ -1,6 +1,12 @@
 package com.nyc.buzzfeedquizhw;
 
+import com.nyc.buzzfeedquizhw.controller.DaoAdapter;
+import com.nyc.buzzfeedquizhw.model.DaoModel;
+
 import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -14,4 +20,21 @@ public class ExampleUnitTest {
     public void addition_isCorrect() throws Exception {
         assertEquals(4, 2 + 2);
     }
+
+    // A test to make sure the adapter properly adds the model.
+    @Test
+    public void testConstructors() {
+        String[] nothing = new String[1];
+        List<DaoModel> daoModels = new ArrayList<>();
+        DaoModel daoModel = new DaoModel("URL", "Question", nothing);
+        assertNotNull(daoModel.getAnswer());
+        assertNotNull(daoModel.getQuestion());
+        assertNotNull(daoModel.getUrl());
+
+        daoModels.add(daoModel);
+        DaoAdapter daoAdapter = new DaoAdapter(daoModels);
+
+        assertNotNull(daoAdapter.getChecked(0));
+    }
+
 }
