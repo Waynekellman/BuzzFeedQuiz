@@ -36,5 +36,4 @@ public class ExampleUnitTest {
 
         assertNotNull(daoAdapter.getChecked(0));
     }
-
 }

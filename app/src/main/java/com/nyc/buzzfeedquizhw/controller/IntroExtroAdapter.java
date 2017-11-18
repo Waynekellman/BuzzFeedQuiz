@@ -21,7 +21,7 @@ public class IntroExtroAdapter extends RecyclerView.Adapter<IntroExtroViewHolder
     private List<IntroExtroModel> modelList;
     private IntroExtroViewHolder viewHolder;
     private IntroExtroModel model;
-    private HashMap<Integer,RadioGroup> viewPosition = new HashMap<>();
+
     public IntroExtroAdapter(List<IntroExtroModel> modelList) {
         this.modelList = modelList;
     }
@@ -35,7 +35,6 @@ public class IntroExtroAdapter extends RecyclerView.Adapter<IntroExtroViewHolder
 
     @Override
     public void onBindViewHolder(IntroExtroViewHolder holder, final int position) {
-        viewPosition.put(position,holder.getView());
         holder.getView().setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, @IdRes int i) {
@@ -51,8 +50,6 @@ public class IntroExtroAdapter extends RecyclerView.Adapter<IntroExtroViewHolder
     public int getItemCount() {
         return modelList.size();
     }
-
-
 
     public int getChecked(int position){
         return modelList.get(position).getBoxChecked();

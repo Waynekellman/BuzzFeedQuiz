@@ -22,7 +22,7 @@ public class DaoAdapter extends RecyclerView.Adapter<DaoViewHolder> {
     private List<DaoModel> modelList;
     private DaoViewHolder viewHolder;
     private DaoModel model;
-    private HashMap<Integer,RadioGroup> viewPosition = new HashMap<>();
+
     public DaoAdapter(List<DaoModel> modelList) {
         this.modelList = modelList;
     }
@@ -36,7 +36,6 @@ public class DaoAdapter extends RecyclerView.Adapter<DaoViewHolder> {
 
     @Override
     public void onBindViewHolder(DaoViewHolder holder, final int position) {
-        viewPosition.put(position,holder.getView());
         holder.getView().setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, @IdRes int i) {
@@ -54,10 +53,6 @@ public class DaoAdapter extends RecyclerView.Adapter<DaoViewHolder> {
     }
 
     public int getChecked(int position){
-        return modelList.get(position).getBoxChecked();
-    }
-
-    public HashMap<Integer, RadioGroup> getViewPosition() {
-        return viewPosition;
+            return modelList.get(position).getBoxChecked();
     }
 }

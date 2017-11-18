@@ -18,6 +18,7 @@ public class IntroExtroModel {
     public void setBoxChecked(int boxChecked) {
         this.boxChecked = boxChecked;
     }
+
     public IntroExtroModel(String url, String question, String[] answer) {
         this.url = url;
         this.question = question;
